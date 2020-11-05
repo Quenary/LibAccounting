@@ -7,9 +7,9 @@
                     <mat-icon *ngIf="hideChilds">chevron_right</mat-icon>
                 </button>
                 <div>{{item.name}}</div>
-                <button mat-icon-button >
+                <!-- <button mat-icon-button >
                     <mat-icon>delete</mat-icon>
-                </button>
+                </button> -->
             </div>
             <app-search-node *ngFor="let i of item.subItems" [hidden]="hideChilds" [data]="i" hideChilds="{{hideChilds}}"></app-search-node>
         </ng-container>
