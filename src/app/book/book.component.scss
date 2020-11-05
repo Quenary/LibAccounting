@@ -1,0 +1,47 @@
+#book-error-message{
+    margin-top: 25vh;
+    text-align: center;
+}
+#book-container{
+    text-align: center;
+
+    #book-categories{
+        text-align: left;
+        padding-left: 2vw;
+        padding-top: 2vh;
+        display: flex;
+        div {
+            padding-left: 1vw;
+            cursor: pointer;
+            // padding: 0 1vw;
+        }
+        div:hover{
+            text-decoration: underline;
+        }
+    }
+    #book-name{
+        margin-top: 5vh;
+        text-align: center;
+        font-size: xx-large;
+    }
+    #book-isbn {
+        margin-top: 2vh;
+    }
+    #book-author{
+        margin-top: 5vh;
+        text-align: left;
+        padding: 0 15vw;
+    }
+    #book-description{
+        margin-top: 5vh;
+        padding: 0 15vw;
+        text-align: justify;
+    }
+
+    #edit-button{
+        margin-top: 10vh;
+    }
+    #delete-button{
+        margin-top: 3vh;
+    }
+}

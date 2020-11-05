@@ -1,0 +1,25 @@
+.toolbar{
+    display: flex;
+    background: #6b6b6b;
+    color: white;
+}
+.toolbar-header{
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    outline: none !important;
+    cursor: pointer;
+    h1{
+        margin: auto;
+    }
+}
+.toolbar-icon-div{
+    outline: none !important;
+    display: flex;
+    img{
+        margin: auto 2vw;
+        height: 5vh;
+    }
+    cursor: pointer;
+}

@@ -1,0 +1,20 @@
+.search-header-container {
+    text-align: center;
+    .search-label{
+        margin: 3vh 0;
+        font-size: xx-large;
+    }
+    mat-form-field {
+        width: 25vw;
+        min-width: 300px;
+    }
+}
+.nodes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+.loading-message{
+    font-size: x-large;
+    margin-top: 10vh;
+    margin-left: 5vw;
+}

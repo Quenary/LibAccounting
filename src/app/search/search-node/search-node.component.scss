@@ -1,0 +1,15 @@
+ul {
+    list-style-type: none;
+}
+.node-div {
+    // padding: 10px 15px;
+    display: inline-flex;
+    font-size: medium;
+    cursor: pointer;
+    * {
+        margin: auto 1vw;
+    }
+}
+.book-div {
+    font-size: small;
+}

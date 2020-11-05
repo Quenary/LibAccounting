@@ -1,0 +1,55 @@
+<div id="book-edit-container">
+  <form [formGroup]="bookForm" (onSubmit)="onSaveClick()">
+    <div id="edit-header">
+      <ng-container *ngIf="data.editType === types.edit; else createBlock">
+        Редактировать книгу
+      </ng-container>
+      <ng-template #createBlock>
+        Добавить новую книгу
+      </ng-template>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>ISBN</mat-label>
+        <input matInput name="book-isbn" formControlName="isbn" type="text" required>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Название</mat-label>
+        <input matInput name="book-name" formControlName="name" type="text" required>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Описание книги</mat-label>
+        <textarea matInput name="book-description" formControlName="description" type="text" required cdkTextareaAutosize></textarea>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Категория</mat-label>
+        <mat-select required formControlName="category">
+          <mat-option *ngFor="let category of categories" [value]="category.id">
+            {{category.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Автор</mat-label>
+        <mat-select required formControlName="author">
+          <mat-option *ngFor="let author of authors" [value]="author.id">
+            {{author.lastName}} {{author.firstName}} {{author.patronymic}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+      <button mat-button (click)="onCancelClick()" color="warn">Отменить</button>
+      <button mat-button (click)="onSaveClick()" color="primary" [disabled]="bookForm.invalid || loading">Сохранить</button>
+    </div>
+  </form>
+</div>

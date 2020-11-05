@@ -1,0 +1,25 @@
+<ul>
+    <li>
+        <ng-container *ngIf="item.type == types.category || item.type == types.base; else bookBlock">
+            <div class="node-div" (click)="hideChilds = !hideChilds">
+                <button mat-icon-button>
+                    <mat-icon *ngIf="!hideChilds" >expand_more</mat-icon>
+                    <mat-icon *ngIf="hideChilds">chevron_right</mat-icon>
+                </button>
+                <div>{{item.name}}</div>
+                <button mat-icon-button >
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+            <app-search-node *ngFor="let i of item.subItems" [hidden]="hideChilds" [data]="i" hideChilds="{{hideChilds}}"></app-search-node>
+        </ng-container>
+        <ng-template #bookBlock>
+            <div class="node-div book-div" [routerLink]="'/book/'+item.bookIsbn" hint="Открыть книгу">
+                <button mat-icon-button>
+                    <mat-icon>import_contacts</mat-icon>
+                </button>
+                <div>{{item.name}}</div>
+            </div>
+        </ng-template>
+    </li>
+</ul>

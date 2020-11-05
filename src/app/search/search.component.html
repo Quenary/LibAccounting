@@ -1,0 +1,27 @@
+<div class="search-container">
+    <div class="search-header-container">
+        <div class="search-label">Поиск</div>
+
+        <mat-form-field appearance="standard">
+            <mat-label>Введите поисковый запрос</mat-label>
+            <input #searchInput matInput placeholder="Категория, название, isbn..." type="text" name="search">
+        </mat-form-field>
+
+        <div class="admin-buttons" *ngIf="user?.role == roles.admin" >
+            <button mat-button (click)="addBookDialog()" color="primary">
+                Добавить книгу
+            </button>
+            <button mat-button  color="primary">
+                Добавить категорию
+            </button>
+        </div>
+    </div>
+    <div class="nodes-container" [hidden]="loading">
+        <div *ngFor="let item of resultSearchTree?.subItems">
+            <app-search-node [data]="item"></app-search-node>
+        </div>
+    </div>
+    <div class="loading-message" [hidden]="!loading">
+        Загрузка...
+    </div>
+</div>

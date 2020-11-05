@@ -1,0 +1,35 @@
+<div id="book-error-message" *ngIf="errorMessage && errorMessage != ''">
+    <div>{{errorMessage}}</div>
+    <button mat-flat-button (click)="navigateTo('/search')" color="primary">Вернуться на главную</button>
+</div>
+<div id="book-container" *ngIf="book">
+    <div id="book-categories">
+        <div (click)="navigateTo('search')">
+            Все книги
+        </div>
+        <ng-container *ngFor="let item of bookCategories">
+            <div (click)="navigateTo('search/'+item.name)">
+                / {{item.name}}
+            </div>
+        </ng-container>
+    </div>
+    <div id="book-name">{{book.name}}</div>
+    <div id="book-isbn">ISBN: {{book.isbn}}</div>
+    <div id="book-author" *ngIf="author">
+        Автор: {{author.lastName}} {{author.firstName}} {{author.patronymic}}
+    </div>
+    <div id="book-description">{{book.description}}</div>
+
+    <div id="edit-button">
+        <button mat-flat-button color="accent" *ngIf="user?.role === roles.admin" (click)="editBook()">
+            Редактировать книгу
+            <mat-icon matSuffix>create</mat-icon>
+        </button>
+    </div>
+    <div id="delete-button">
+        <button mat-flat-button color="warn" *ngIf="user?.role === roles.admin" (click)="deleteBookDialog()">
+            Удалить книгу
+            <mat-icon matSuffix>delete</mat-icon>
+        </button>
+    </div>
+</div>

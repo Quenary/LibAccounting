@@ -1,0 +1,22 @@
+<div class="login-container">
+    <form #form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="login-title">
+            Вход в систему
+        </div>
+        <div class="error-message" [class.error-message-appear]="errorMessage != ''" >
+            {{errorMessage}}
+        </div>
+        <mat-form-field appearance="standard">
+            <mat-label>Введите e-mail</mat-label>
+            <input matInput placeholder="some@example.com" formControlName="email" name="email" type="email" required>
+            <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="standard" >
+            <mat-label>Введите пароль</mat-label>
+            <input matInput placeholder="пароль" formControlName="password" required [type]="hidePass ? 'password' : 'text'" name="password">
+            <mat-icon matSuffix (click)="hidePass = !hidePass">{{hidePass ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <button type="submit" [disabled]="form.invalid || loading" mat-flat-button color="primary">Войти</button>
+    </form>
+</div>

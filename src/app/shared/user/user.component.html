@@ -1,0 +1,14 @@
+<div class="user-container">
+    <ng-container *ngIf="user; else elseBlock">
+        <div class="user-name">
+            {{user.name}}
+        </div>
+        <button mat-flat-button color="warn" (click)="logoutClick()">
+            Выйти
+        </button>
+    </ng-container>
+    <ng-template #elseBlock>
+        <button mat-flat-button color="primary" routerLink="login">Войти</button>
+        <button mat-flat-button color="accent" routerLink="register">Зарегистрироваться</button>
+    </ng-template>
+</div>

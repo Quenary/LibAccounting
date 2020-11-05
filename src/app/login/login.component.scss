@@ -1,0 +1,38 @@
+mat-icon {
+    cursor: pointer;
+}
+
+.login-title {
+    font-size: xx-large;
+    text-align: center;
+    margin-bottom: 5vh;
+}
+
+form{
+    width: 20vw;
+    min-width: 300px;
+    margin: auto;
+    margin-top: 20vh;
+    mat-form-field, button{
+        width: 20vw;
+        min-width: 300px;
+    }
+    button {
+        margin-top: 5vh;
+    }
+}
+
+.error-message {
+    background: #ff7a7a;
+    border-radius: 10px;
+    padding: 15px 15px;
+    height: 0px;
+    opacity: 0;
+    transition-property: height, opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+.error-message-appear {
+    height: 100px;
+    opacity: 1;
+}
